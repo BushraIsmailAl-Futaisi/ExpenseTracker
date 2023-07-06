@@ -9,7 +9,18 @@
     <meta charset="UTF-8". />
     <meta name=" login page" content="This is the login page for the expense tracking website" / >
     <title>Expense tracke </title>
+    <center align="left"> <img alt="user "src="../ExpenseTracker\icon\profile.png" style="width: 2%;" / >
+    <?php
+   session_start();
+   if(empty($_SESSION['Username'])){
     
+    echo' no_Username';
+   }
+   else{
+    echo $_SESSION['Username'];
+   }
+    ?>
+  </center>
 
 </head>
 <body    style="background-color:  rgba(250, 31, 31, 0.080)" >
