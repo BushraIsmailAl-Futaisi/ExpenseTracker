@@ -10,12 +10,12 @@
     <center align="left"> <img alt="user "src="../ExpenseTracker\icon\profile.png" style="width: 2%;" / >
     <?php
    session_start();
-   if(empty($_SESSION['Username'])){
+   if(empty( $_SESSION['user'])){
     
     echo' no_Username';
    }
    else{
-    echo $_SESSION['Username'];
+    echo  $_SESSION['user'];
    }
 
     ?>
@@ -28,69 +28,55 @@
   
 </header>
 
-<form   style="background-color:  rgba(250, 31, 31, 0.075);width: 100%; height: 10%;">
+<form  action='category.php' style="background-color:  rgba(250, 31, 31, 0.075);width: 100%; height: 10%;">
     <div> 
         <label>Money value </label>
-        <p><input type="text"   name="name" placeholder="Enter the number" ></p> 
+        <p><input type="text"   name="mony" placeholder="Enter the number" ></p> 
      </div>
-   
-     <p><label>Add category</label></p> 
-      <p> <div> 
-             <input  id=" st"type="radio"  name="os" value="Food">
-             <label for="st">Food </label>
-          </div>
-
-          <div> 
-             <input  id=" em"type="radio" name="os"  value="Clothes" >
-              <label for="em">Clothes </label>
-         </div>
-
-         <div> 
-             <input  id=" fr"type="radio" name="os" value=" Car" >
-             <label for="fr"> Car</label>
-         </div> 
-
-         <div> 
-             <input  id=" fr"type="radio" name="os"  value="stady" >
-             <label for="fr">stady </label>
-         </div> 
-          
-         <div> 
-             <input  id=" fr"type="radio" name="os" value="Hospital" >
-             <label for="fr"> Hospital</label>
-         </div> 
-
-         <div> 
-             <input  id=" fr"type="radio" name="os"  value="Wifi" >
-             <label for="fr"> Wifi </label>
-         </div> 
-
-         <div> 
-              <input  id=" fr"type="radio" name="os" value="Travel" >
-              <label for="fr">Travel </label>
-         </div> 
-      </p> 
-
+       
+     <div> 
+        <label>soucer_mony </label>
+        <p><input type="text"   name="soucer" placeholder="Enter the soucer_mony" ></p> 
+     </div>
+    
       <div> 
-        <textarea   name="note" cols="40" rows="10" placeholder="Write a note"  ></textarea>
-        
+        <br>  
+           <select id="st"  name="Addcategory" value="F">
+            <p> <option disabled selected>Add category</option>
+             <option >Clothes</option>
+             <option>Car</option>
+             <option>stady</option>
+             <option> Hospital</option>
+             <option> Wifi</option>
+             <option>Travel</option>
+           </select>
+            
+          </p> 
+          <br>
+          </div>
+          <br>
+      <div>
+      <p>
+        <br>
+        <textarea   name="note" cols="40" rows="10" placeholder="Write a note"  >Write a note</textarea>
+      </p>
       </div> 
        <p>
       <div> 
         <label >Add image</label>
-        <input  type="file" value="Add image"  />
+        <input  type="file" name="file" value="Add image"  />
       </div>
        </p>
       <p>
       <div> 
         <label >Data</label>
-        <input  type="date"  />
+        <input  type="date"  name="Data"  />
       </div>
        </p>
         <p>
        <div>
         <label >Time</label>
-        <input  type="time"  />
+        <input  type="time" name="Time"  />
       </div>
        </p>
        <p>

@@ -10,19 +10,22 @@
     <center align="left"> <img alt="user "src="../ExpenseTracker\icon\profile.png" style="width: 2%;" / >
     <?php
    session_start();
-   if(empty($_SESSION['Username'])){
-    
-    echo' no_Username';
+   if(empty($_SESSION['user']) ){
+
+     echo' no_Username';
    }
    else{
-    echo $_SESSION['Username'];
+   
+     echo  $_SESSION['user'];
    }
+   //action="sighup_page.php"  
     ?>
+    
   </center>
 
 </head>
-<body   style="background-color:  rgba(250, 31, 31, 0.080)">
-    <form  action="save page.php"   method="post"   style="background-color:  rgba(250, 31, 31, 0.075); width: 100%; height: 10%;" > 
+<body     style="background-color:  rgba(250, 31, 31, 0.080)">
+    <form    action="Try1.php"   method="post"   style="background-color:  rgba(250, 31, 31, 0.075); width: 100%; height: 10%;" > 
      
        
        </div>
@@ -31,8 +34,7 @@
           <label>UserName </label>
          <p><input type="text"   name="UserName"   maxlength="15" minlength="5"  placeholder="Enter the username" required ></p> 
        </div>
-
-       
+      
         <div> 
              <label> E-mail address </label>
             <p><input type="email"    name="Email"  placeholder="Enter the Email" required></p>
@@ -67,8 +69,10 @@
       </div> 
       
       
-     
-      
+
+
+
+
 </form>
 </body>
 </html>
