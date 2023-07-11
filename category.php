@@ -1,13 +1,25 @@
 <?php
-if(isset($_POST['submit']))
-{$category=$_POST['Addcategory'];
-$mony=$_POST['mony'];
-$Soucer=$_POST['soucer'];
+if(isset($_POST['submit'])){
+$gory=$_POST['Addcategory'];
+echo"<br>";
+echo "$gory";
+$value=$_POST['Mony'];
+echo"<br>";
+echo "$value";
+$Soucer=$_POST['Soucer'];
+echo"<br>";
+echo "$Soucer";
 $Note=$_POST['note'];
-$File=$_POST['file'];
-$Data=$_POST['Data'];
-$Time=$_POST['Time'];}
-//mony soucer Addcategory Write a note  file Time Data
+echo"<br>";
+echo "$Note";
+$TIME=$_POST['TIME'];
+echo"<br>";
+echo "$TIME";
+$DATA=$_POST['DATE'];
+echo"<br>";
+echo"$DATA";
+
+}
 require_once 'database.php';
 $conn = new mysqli($hn, $un, $pw, $db);
 if ($conn->connect_error) {
@@ -16,53 +28,31 @@ if ($conn->connect_error) {
         die($conn -> error);
     }
     else{
-       echo' its connection';
+       echo' its connected';
     }
-    
-       
-    
-    $query = "INSERT INTO add category (category,soucer_mony,Data,Time,Write_a_note,Add_image)  VALUES 
-    ('$category','$Soucer','$Data','$Time','$Note','$File')" ;
-       // $result = $conn->query($query);
-       
-  
-    if (!$query) {
-        echo  "<p>you inserted into the database.</p>";
+      
+   session_start();
+    $id=$_SESSION['Id_number'];
+    $query = "INSERT INTO addcategory (user_id,category,mony,soucer_mony,Data,Time ,Write_a_note ) 
+     VALUES ('$id','$gory','$value','$Soucer','$DATA','$TIME','$Note')";
+       $result = $conn->query($query);
+        //echo "$query";
+
+    if ($result) {
+        echo  "<p>inserted into the database.</p>";
+           header("REFRESH:5;Home page.php");
     } else {
         echo   $conn -> error ;
         echo   "<br/>.The item was not added.";
         echo    "<br/>$query ";
+        header("REFRESH:3;Home page.php");
     }
+  
   
        //close connection
        $conn -> close();
-  
-      /* UserName Email  
-       password
-       agin */
 
   ?>
 </body>
 </html>
 
-
-   
-
-
-
-
-
-}
-
-
-
-
-
-}
-
-
-
-
-
-
-?>

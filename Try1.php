@@ -3,35 +3,35 @@
 <html>
 <head>
   <title>expensetracker</title>
-  <p> <button>  <a href= "../ExpenseTracker/Home page.php"><strong>Return</strong></a></button></p>
+  
 </head>
 <body>
-  <h1>welcom to expensetracker</h1>
+  <h1>welcome to expensetracker</h1>
  
   
   <?php
-
+   $user=$_POST['UserName'];
+   $email=$_POST['Email'];
+   $password=$_POST['password'];
+    $agin=$_POST['agin'];
    
 
     // create short variable names
-   
-    if( $_SESSION['password']!=$_SESSION['Agin'])
+    
+    if( $password!=$agin)
     {
-        echo'ereero';
-
+        echo'Error Confirmation code is wrong';
+        echo'Please try again';
+        header("REFRESH:3;Signup.php"); 
     
     }
     else
      { session_start();
-      $user=$_POST['UserName'];
-       $email=$_POST['Email'];
-       $password=$_POST['password'];
-        $agin=$_POST['agin'];
+      
         $_SESSION['user']=$user;
          $_SESSION['email']=$email;
         $_SESSION['password']=$password;
-        $_SESSION['Agin']=$Agin;
-
+       
 require_once 'database.php';
 $conn = new mysqli($hn, $un, $pw, $db);
 if ($conn->connect_error) {
@@ -40,7 +40,7 @@ if ($conn->connect_error) {
         die($conn -> error);
     }
     else{
-       echo' its connection';
+       echo' it`s connected';
     }
     
        
@@ -60,6 +60,7 @@ if ($conn->connect_error) {
   
        //close connection
        $conn -> close();
+       header("REFRESH:3;Home page.php");
   }
      
   ?>

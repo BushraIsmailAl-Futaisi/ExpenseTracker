@@ -13,26 +13,39 @@
     <center align="left"> <img alt="user "src="../ExpenseTracker\icon\profile.png" style="width: 2%;" / >
     <?php
    session_start();
-   if(empty( $_SESSION['user'])){
+   if(empty( $_SESSION['user']) && (empty( $_SESSION['Email']))){
     
     echo' no_Username';
    }
-   else{
-    echo  $_SESSION['user'];
-   }
+    
+    else
+      { if(!empty( $_SESSION['user']) )
+       {
+        echo$_SESSION['user'];
+       }
+       else
+       {
+         echo$_SESSION['Email'];
+       }
+
+      }
     ?>
+
   </center>
   <hr/>
 </head>
 <body>
-   
+
 <header>
         <button> <a href="../ExpenseTracker/Signup.php" ><strong>signup </strong></a></button>
         <button><a href= "../ExpenseTracker/login.php"> <strong>logoin</strong></a></button>
          <button> <a href= "../ExpenseTracker/signout.php"><strong>signout</strong></a></button>
          <button> <a href= "../ExpenseTracker/About use.php"><strong>About use</strong></a></button>
+        
+       
          <button> <a href= "../ExpenseTracker/Add category.php"><strong>Add category</strong></a></button>
-         
+         <button> <a href= "../ExpenseTracker/Edit_username.php"><strong> Edit Username</strong></a></button>
+         <button> <a href= "../ExpenseTracker/view_category.php"><strong> Edit category</strong></a></button>
         <center><label>Search</label>
         <input type="search"  placeholder="write the search"></center>
         <h2>Expense tracker</h2>

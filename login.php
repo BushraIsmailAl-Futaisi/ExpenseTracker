@@ -9,17 +9,28 @@
     <meta charset="UTF-8". />
     <meta name=" login page" content="This is the login page for the expense tracking website" / >
     <title>Expense tracke </title>
+    <button>  <a href= "../ExpenseTracker/Home page.php"><strong>Return</strong></a></button>
     <center align="left"> <img alt="user "src="../ExpenseTracker\icon\profile.png" style="width: 2%;" / >
     <?php
    session_start();
-   if(empty( $_SESSION['user'])){
+   if(empty( $_SESSION['user']) && (empty( $_SESSION['Email']))){
     
     echo' no_Username';
    }
-   else{
-    echo  $_SESSION['user'];
-   }
+    
+    else
+      { if(!empty( $_SESSION['user']) )
+       {
+        echo$_SESSION['user'];
+       }
+       else
+       {
+         echo$_SESSION['Email'];
+       }
+
+      }
     ?>
+
   </center>
 
 </head>
@@ -30,14 +41,14 @@
 
         <div> 
             <label> E-mail address </label>
-            <p><input type="text"  name="username"     maxlength="15" minlength="10"  placeholder="Enter the username"  required></p>
+            <p><input type="email"  name="Email"     maxlength="15" minlength="5  placeholder="Enter the username"  required></p>
         </div> 
        
 
 
        <div> 
          <label>password </label> 
-         <p><input type="password" name="password"    placeholder="Enter the password"required  maxlength="14" minlength="10"></p>
+         <p><input type="password" name="password"    placeholder="Enter the password"required  maxlength="14" minlength="5"></p>
        </div> 
        
       

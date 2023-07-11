@@ -1,5 +1,5 @@
 <?php 
-    $hn = '127.0.0.1';
+    $hn = 'localhost';
     $db = 'expensetracker';
     $un = 'root';
     $pw = '';

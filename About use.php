@@ -12,15 +12,24 @@
     <center align="left"> <img alt="user "src="../ExpenseTracker\icon\profile.png" style="width: 2%;" / >
     <?php
    session_start();
-   if(empty( $_SESSION['user'])){
+   if(empty( $_SESSION['user']) && (empty( $_SESSION['Email']))){
     
     echo' no_Username';
    }
-   else{
-    echo  $_SESSION['user'];
-   }
+    
+    else
+      { if(!empty( $_SESSION['user']) )
+       {
+        echo$_SESSION['user'];
+       }
+       else
+       {
+         echo$_SESSION['Email'];
+       }
 
+      }
     ?>
+
   </center>
 
 

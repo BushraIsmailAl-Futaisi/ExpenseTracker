@@ -7,19 +7,28 @@
     <meta charset="UTF-8". />
     <meta name=" Create an account" content="This is the account creation page on the Expense tracking website" / >
     <title>Expense tracke </title>
+    <button>  <a href= "../ExpenseTracker/Home page.php"><strong>Return</strong></a></button>
     <center align="left"> <img alt="user "src="../ExpenseTracker\icon\profile.png" style="width: 2%;" / >
     <?php
    session_start();
-   if(empty($_SESSION['user']) ){
+   if(empty( $_SESSION['user']) && (empty( $_SESSION['Email']))){
+    
+    echo' no_Username';
+   }
+    
+    else
+      { if(!empty( $_SESSION['user']) )
+       {
+        echo$_SESSION['user'];
+       }
+       else
+       {
+         echo$_SESSION['Email'];
+       }
 
-     echo' no_Username';
-   }
-   else{
-   
-     echo  $_SESSION['user'];
-   }
-   //action="sighup_page.php"  
+      }
     ?>
+
     
   </center>
 

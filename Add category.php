@@ -10,15 +10,24 @@
     <center align="left"> <img alt="user "src="../ExpenseTracker\icon\profile.png" style="width: 2%;" / >
     <?php
    session_start();
-   if(empty( $_SESSION['user'])){
+   if(empty( $_SESSION['user']) && (empty( $_SESSION['Email']))){
     
     echo' no_Username';
    }
-   else{
-    echo  $_SESSION['user'];
-   }
+    
+    else
+      { if(!empty( $_SESSION['user']) )
+       {
+        echo$_SESSION['user'];
+       }
+       else
+       {
+         echo$_SESSION['Email'];
+       }
 
+      }
     ?>
+
   </center>
 
 </head>
@@ -28,55 +37,46 @@
   
 </header>
 
-<form  action='category.php' style="background-color:  rgba(250, 31, 31, 0.075);width: 100%; height: 10%;">
-    <div> 
+<form  action='category.php'  method="post"   style="background-color:  rgba(250, 31, 31, 0.075);width: 100%; height: 10%;">
+   <div> 
         <label>Money value </label>
-        <p><input type="text"   name="mony" placeholder="Enter the number" ></p> 
+        <p><input type="text"   name="Mony" placeholder="Enter the number" ></p> 
      </div>
        
+    
      <div> 
         <label>soucer_mony </label>
-        <p><input type="text"   name="soucer" placeholder="Enter the soucer_mony" ></p> 
+        <p><input type="text"   name="Soucer" placeholder="Enter the soucer_mony" ></p> 
      </div>
-    
+     
       <div> 
-        <br>  
-           <select id="st"  name="Addcategory" value="F">
-            <p> <option disabled selected>Add category</option>
-             <option >Clothes</option>
-             <option>Car</option>
-             <option>stady</option>
-             <option> Hospital</option>
-             <option> Wifi</option>
-             <option>Travel</option>
+        <br> 
+            <label for="st">Add category</label> 
+           <select id="st"  name="Addcategory" required>
+             <p><option value="Clothes" >Clothes</option>
+             <option value="Car">Car</option>
+             <option value="stady">stady</option>
+             <option  value="Hospital"> Hospital</option>
+             <option value=" Wifi"> Wifi</option>
+             <option  value="Travel">Travel</option>
            </select>
             
           </p> 
-          <br>
-          </div>
-          <br>
       <div>
       <p>
-        <br>
-        <textarea   name="note" cols="40" rows="10" placeholder="Write a note"  >Write a note</textarea>
+        <input type="text" name="note"  placeholder="Write a note"  >Write a note</textarea>
       </p>
-      </div> 
-       <p>
-      <div> 
-        <label >Add image</label>
-        <input  type="file" name="file" value="Add image"  />
-      </div>
-       </p>
+      
       <p>
       <div> 
         <label >Data</label>
-        <input  type="date"  name="Data"  />
+        <input  type="date"  name="DATE"  />
       </div>
        </p>
         <p>
        <div>
         <label >Time</label>
-        <input  type="time" name="Time"  />
+        <input  type="time" name="TIME"  />
       </div>
        </p>
        <p>
