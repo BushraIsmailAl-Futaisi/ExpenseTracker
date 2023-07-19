@@ -6,7 +6,7 @@
 </head>
 <body>
   <h1>welcome to expensetracker</h1>
- 
+   
   
   <?php
   //Mony Soucer  Note  DATA  FILE
@@ -30,7 +30,13 @@ if ($conn->connect_error) {
        echo' it`s connected';
     }
     
-       
+    $query2 = "SELECT number_category,category,mony,soucer_mony,Data,Time,Write_a_note FROM addcategory WHERE number_category='$num'"; // select query
+    $result2 = $conn->query($query2); // fetch data
+    if (!$result2) {
+       // echo "<p>Unable to execute the query.</p> ";
+       // echo $query;
+        die($conn->error);
+    }
     
     $query = "INSERT INTO financial_amount ( expenses,soucer_mony,Write_anote,data,Add_image)  VALUES 
     ( $mony, $Soucer,$Note,$Data,$file)" ;

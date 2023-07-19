@@ -1,9 +1,35 @@
-
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
-    <head> <button>  <a href= "../ExpenseTracker/view_category.php"><strong>Return</strong></a></button></head>
-    <body style="background-color:lavenderblush"></body>
+    <head></head>
+    <!--<body style="background-color:lavenderblush"></body>-->
     <center align="left"> <img alt="user "src="../ExpenseTracker\icon\profile.png" style="width: 2%;" / >
+    <body     style="background-color:  rgba(250, 31, 31, 0.080)">
+    <form    action="Expens2.php"   method="post"   style="background-color:  rgba(250, 31, 31, 0.075); width: 100%; height: 10%;" > 
+     
+       
+       
+  
+       <div> 
+          <label>The mony </label>
+          <p><input type="text"   name="Mony"   maxlength="15" minlength="5"  placeholder="Enter the mony" required ></p> 
+       </div>
+       <div> 
+         <label>soucer_mony </label>
+         <p><input type="text"   name="Soucer" placeholder="Enter the soucer_mony" ></p> 
+         </div>
+         
+        <div> 
+             <label> note </label>
+             <p><input type="text"    name="Note"  placeholder="Enter the commnt" ></p>
+        </div> 
+       
+        <div> 
+             <label> Data </label>
+             <p><input type="date"    name="DATA"  required  ></p>
+        </div> 
+       
+
+
     <?php
    session_start();
    if(empty( $_SESSION['user']) && (empty( $_SESSION['Email']))){
@@ -22,6 +48,7 @@
        }
 
       }
+      
     ?>
 
     
@@ -30,7 +57,6 @@
 <?php
 
 $num=$_GET['number_category'];
-
 require_once 'database.php'; 
 $conn = new mysqli($hn, $un, $pw, $db);
 
@@ -57,7 +83,7 @@ if (isset($_POST['update'])) // when click on Update button
     $query = "update addcategory set category='$Cate',mony='$Mony',soucer_mony='$soucer', Data='$DATA',Time='$TIME',Write_a_note='$note' where  number_category='$num'";
      $edit = $conn->query($query);
     echo"$query";
-   
+
     if ($edit) {
         $conn->close(); // Close connection
         header("location:Home page.php"); // redirects to all records page
@@ -68,30 +94,45 @@ if (isset($_POST['update'])) // when click on Update button
         die($conn->error);
     }
 }
-
-
 ?>
  
 <h3>Update Data</h3>
-<!-- style="background-color:  rgba(250, 31, 31, 0.080)-->
-<form method="POST">
-    <select  name="category"  value="<?php echo $data['category']?>">
+
+<form method="POST"   style="background-color:  rgba(250, 31, 31, 0.080)">
+    <select  name="category"  value="<?php echo $data['category']?>" Required>
              <p><option value="Clothes" >Clothes</option>
              <option value="Car">Car</option>
              <option value="stady">stady</option>
              <option  value="Hospital"> Hospital</option>
              <option value=" Wifi"> Wifi</option>
              <option  value="Travel">Travel</option>
-             </p>
            </select>
 
     <input type="text" name="mony" value="<?php echo $data['mony'] ?>" placeholder="Enter the mony" Required>
     <input type="text" name="soucer_mony" value="<?php echo $data['soucer_mony'] ?>" placeholder="Enter the soucer_mony" Required>
     <input type="text" name="Data" value="<?php echo $data['Data'] ?>" placeholder="Enter data" Required>
     <input type="text" name="Time" value="<?php echo $data['Time'] ?>" placeholder="Enter Time" Required>
-    <input type="text" name="Write_a_note" value="<?php echo $data['Write_a_note'] ?>" placeholder="Enter note" Required>
+    <input type="text" name="Write_a_note" value="<?php echo $data['Write_a_note'] ?>" placeholder="Enter note" Required></textarea>
 
-
+     <div> 
+        <label>The mony </label>
+        <p><input type="text"   name="Mony"   maxlength="15" minlength="5"  placeholder="Enter the mony" required ></p> 
+     </div>
+     <div> 
+       <label>soucer_mony </label>
+       <p><input type="text"   name="Soucer" placeholder="Enter the soucer_mony" ></p> 
+       </div>
+       
+      <div> 
+           <label> note </label>
+           <p><input type="text"    name="Note"  placeholder="Enter the commnt" ></p>
+      </div> 
+     
+      <div> 
+           <label> Data </label>
+           <p><input type="date"    name="DATA"  required  ></p>
+      </div> 
+     
 
 
 

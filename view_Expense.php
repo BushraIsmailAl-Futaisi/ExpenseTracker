@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html>
 
@@ -39,15 +37,13 @@
       <tr style="background-color:ivory">
         <td>user_id</td>
         <td>number_category</td>
-        <td>category</td>
-        <td>mony</td>
+        <td>number</td>
+        <td>expenses</td>
         <td>soucer_mony</td>
-        <td>Time</td>
+        <td>Write_anote</td>
         <td>Data</td>
-        <td>Write_a_note </td>
         <td>Edit</td>
         <td>Delete</td>
-        <td>Expense</td>
       </tr>
 
       <?php
@@ -63,7 +59,7 @@
         exit;
       }
      
-      $query = "SELECT user_id,number_category,category,mony,soucer_mony,Data,Time,Write_a_note FROM addcategory WHERE user_id='$id'";
+      $query = "SELECT username_id,number_addcategory,number,expenses,soucer_mony,Write_anote,data FROM financial_amount WHERE username_id='$id'";
      // echo'<br>';
      //echo "$query";
       
@@ -79,32 +75,29 @@
         ?>
         <tr>
           <td>
-            <?php echo $data['user_id']; ?>
+            <?php echo $data['username_id']; ?>
           </td>
           <td>
-            <?php echo $data['number_category']; ?>
+            <?php echo $data['number_addcategory']; ?>
           </td>
           <td>
-            <?php echo $data['category']; ?>
+            <?php echo $data['number']; ?>
           </td>
           <td>
-            <?php echo $data['mony']; ?>
+            <?php echo $data['expenses']; ?>
           </td>
           <td>
             <?php echo $data['soucer_mony']; ?>
           </td>
           <td>
-            <?php echo $data['Data']; ?>
+            <?php echo $data['Write_anote']; ?>
           </td>
-          <td>Write_a_note
-            <?php echo $data['Time']; ?>
-          </td>
-          <td>
-            <?php echo $data['Write_a_note']; ?>
-          </td>
-          <td><a href="edit_category.php?number_category=<?php echo $data['number_category'];?>">Edit</a></td>
-          <td><a href="delete.php?user_id=<?php echo $data['number_category'];?>">Delete</a></td>
-          <td><a href="Expense.php?number_category=<?php echo $data['number_category'];?>">Expense</a></td>
+            <td>
+            <?php echo $data['data']; ?>
+           </td>
+
+           <td><a href="Edit_Expense.php?number=<?php echo $data['number'];?>">Edit</a></td>
+           <td><a href="delete.php?number=<?php echo $data['number'];?>">Delete</a></td>
           </td>
 
         </tr>

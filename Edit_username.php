@@ -2,7 +2,9 @@
 <!DOCTYPE html>
 
 <html>
-    <head></head>
+    <head>
+    <button>  <a href= "../ExpenseTracker/Home page.php"><strong>Return</strong></a></button>
+    </head>
     <body style="background-color:lavenderblush"></body>
     <center align="left"> <img alt="user "src="../ExpenseTracker\icon\profile.png" style="width: 2%;" / >
     <?php
