@@ -27,61 +27,66 @@
   </center>
 </html>
 <?php
-
+$id=$_SESSION['Id_number'];
 $number=$_GET['number'];
 $num=$_GET['number_addcategory'];
 $value=$_GET['expenses'];
 require_once 'database.php'; 
 $conn = new mysqli($hn, $un, $pw, $db);
 
-$query = "SELECT username_id,number_addcategory,number,expenses,soucer_mony,Write_anote,data FROM financial_amount WHERE number='$number'"; // select query
+$query = "SELECT username_id,number_addcategory,number,expenses,soucer_mony,Write_anote,data FROM financial_amount WHERE number='$number'AND username_id='$id'"; // select query
 
 $result = $conn->query($query); // fetch data
 if (!$result) {
-   // echo "<p>Unable to execute the query.</p> ";
-   // echo $query;
+   echo "<p>Unable to execute the query.</p> ";
+    echo $query;
     die($conn->error);
 }
 $data = $result->fetch_array(MYSQLI_ASSOC);
 /*****************************/ 
-$qu= "SELECT user_id,number_category,category,mony,soucer_mony,Data,Time,Write_a_note FROM addcategory WHERE number_category='$num'";
+$qu= "SELECT user_id,number_category,category,mony,soucer_mony,Data,Time,Write_a_note FROM addcategory WHERE number_category='$num' AND user_id ='$id'";
     $result2 = $conn->query($qu); // fetch data
      if (!$result2) {
-   // echo "<p>Unable to execute the query.</p> ";
-   // echo $query;
+     echo "<p>Unable to execute the query.</p> ";
+     echo $query;
     die($conn->error);
      }
-     //////////////
+     ////////////
     $data1 = $result2->fetch_array(MYSQLI_ASSOC);
-if (isset($_POST['update'])) // when click on Update button
+if (isset($_POST['delete'])) // when click on Update button
 {      
     $mony=$_POST['Mony'];
    $Soucer=$_POST['Soucer'];
    $Note=$_POST['Note'];
     $Data=$_POST['DATA'];
 
-     echo"$query";
+    // echo$data1['mony'];
      echo"<br>";
-    $query = "update financial_amount set expenses='$mony',soucer_mony='$Soucer',Write_anote='$Note',data='$Data' where number='$number'";
-     $edit = $conn->query($query);
      $value2=$data1['mony'];
      $value3=$value2+$value;
-    $newMony=$value3-$mony;
-     $updata="update addcategory set mony='$newMony' where number_category='$num'";
+     //echo$value;
+     echo"<br>";
+    // echo $value3;
+     $updata="update addcategory set mony=' $value3' where number_category='$num'";
      $edit3 = $conn->query($updata);
-     if ($edit3) {
-      $conn->close(); // Close connection
-      //header("location:Home page.php"); // redirects to all records page
-      exit;}
-   else {
-      echo "<p>Unable to execute the query.</p> ";
-      echo $query;
-      die($conn->error);
-  }
      
-    
+  
+     $query ="Delete from financial_amount where username_id='$id' AND  number='$number' ";
+     $delete =  $conn->query($query);
+     if($delete)
+     {
+         $conn->close();// Close connection
+         header("location:Home page.php"); 
+         exit;
+     }
+     else
+     {
+         echo "<p>Unable to execute the query.</p> ";
+         echo $query;
+         die ($conn -> error);
+     }    	
     }  
- 
+     
           
                 
 
@@ -97,5 +102,5 @@ if (isset($_POST['update'])) // when click on Update button
     <input type="text" name="Note" value="<?php echo $data['Write_anote'] ?>" placeholder="Enter data" Required>
     <input type="text" name="DATA" value="<?php echo $data['data'] ?>" placeholder="Enter Time" Required>
    
-    <input type="submit" name="update" value="Update">
+    <input type="submit" name="delete" value="delete">
 </form>

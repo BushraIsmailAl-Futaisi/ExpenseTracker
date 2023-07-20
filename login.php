@@ -41,14 +41,14 @@
 
         <div> 
             <label> E-mail address </label>
-            <p><input type="email"  name="Email"     maxlength="15" minlength="5  placeholder="Enter the username"  required></p>
+            <p><input type="email"    name="Email"     maxlength="15" minlength="5  placeholder="Enter the username"  required></p>
         </div> 
        
 
 
        <div> 
          <label>password </label> 
-         <p><input type="password" name="password"    placeholder="Enter the password"required  maxlength="14" minlength="5"></p>
+         <p><input type="password"   name="password"    placeholder="Enter the password"required  maxlength="14" minlength="5"></p>
        </div> 
        
       

@@ -1,11 +1,15 @@
 <?php
 if(isset($_POST['submit'])){
+
 $gory=$_POST['Addcategory'];
 echo"<br>";
 echo "$gory";
 $value=$_POST['Mony'];
 echo"<br>";
 echo "$value";
+//$_SESSION['value']=$value;
+//echo$_SESSION['value'];
+echo"<br>";
 $Soucer=$_POST['Soucer'];
 echo"<br>";
 echo "$Soucer";
@@ -45,12 +49,14 @@ if ($conn->connect_error) {
         echo   $conn -> error ;
         echo   "<br/>.The item was not added.";
         echo    "<br/>$query ";
-        header("REFRESH:3;Home page.php");
-    }
-  
+          header("REFRESH:3;Add category.php");
+    }   
   
        //close connection
        $conn -> close();
+       
+
+       
 
   ?>
 </body>

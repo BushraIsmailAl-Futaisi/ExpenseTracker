@@ -96,8 +96,8 @@
             <?php echo $data['data']; ?>
            </td>
 
-           <td><a href="Edit_Expense.php?number=<?php echo $data['number'];?>">Edit</a></td>
-           <td><a href="delete.php?number=<?php echo $data['number'];?>">Delete</a></td>
+           <td><a href="Edit_Expense.php?number_addcategory=<?php echo $data['number_addcategory'];?>& number=<?php echo $data['number'];?>& expenses=<?php echo $data['expenses'];?>">Edit</a></td>
+           <td><a href="delete Expense.php?number_addcategory=<?php echo $data['number_addcategory'];?>& number=<?php echo $data['number'];?>& expenses=<?php echo $data['expenses'];?>">Delete</a></td>
           </td>
 
         </tr>

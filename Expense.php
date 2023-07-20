@@ -88,7 +88,7 @@ if (isset($_POST['submit'])) // when click on Update button
          echo    "<br/>$query ";
      }
      
-     $_SESSION['mony']=$Mony; 
+    // $_SESSION['mony']=$Mony; 
      $newMony=$Mony-$mony;
      $updata="update addcategory set mony='$newMony' where  number_category='$num'";
      $edit = $conn->query($updata);
@@ -111,11 +111,12 @@ if (isset($_POST['submit'])) // when click on Update button
 
 ?>
  </head>
-
+ 
 <body     style="background-color:  rgba(250, 31, 31, 0.080)">
 <br>
 <form method="POST"  style="background-color:  rgba(250, 31, 31, 0.080)">
-    <select  name="category"  value="<?php echo $data['category']?>">
+             <select  name="category"  value="">
+             <option value=""><?php echo $data['category']?></option>
              <p><option value="Clothes" >Clothes</option>
              <option value="Car">Car</option>
              <option value="stady">stady</option>

@@ -88,7 +88,7 @@
             <?php echo $data['category']; ?>
           </td>
           <td>
-            <?php echo $data['mony']; ?>
+            <?php echo $data['mony']; ?>  
           </td>
           <td>
             <?php echo $data['soucer_mony']; ?>
@@ -96,14 +96,14 @@
           <td>
             <?php echo $data['Data']; ?>
           </td>
-          <td>Write_a_note
+             <td>
             <?php echo $data['Time']; ?>
-          </td>
-          <td>
+            </td>
+           <td>
             <?php echo $data['Write_a_note']; ?>
-          </td>
+           </td>
           <td><a href="edit_category.php?number_category=<?php echo $data['number_category'];?>">Edit</a></td>
-          <td><a href="delete.php?user_id=<?php echo $data['number_category'];?>">Delete</a></td>
+          <td><a href="delete_category.php?number_category=<?php echo $data['number_category'];?>">Delete</a></td>
           <td><a href="Expense.php?number_category=<?php echo $data['number_category'];?>">Expense</a></td>
           </td>
 

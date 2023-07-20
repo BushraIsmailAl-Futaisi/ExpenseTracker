@@ -6,6 +6,8 @@
   
     <meta charset="UTF-8". />
     <meta name=" Create an account" content="This is the account creation page on the Expense tracking website" / >
+    <!--<link rel="stylesheet"  herf="C:\xampp\htdocs\php\css\home.css">-->
+    <link rel="stylesheet"href="css\home.css">
     <title>Expense tracke </title>
     <button>  <a href= "../ExpenseTracker/Home page.php"><strong>Return</strong></a></button>
     <center align="left"> <img alt="user "src="../ExpenseTracker\icon\profile.png" style="width: 2%;" / >
@@ -41,24 +43,24 @@
       
        <div> 
           <label>UserName </label>
-         <p><input type="text"   name="UserName"   maxlength="15" minlength="5"  placeholder="Enter the username" required ></p> 
+         <p><input type="text"    name="UserName"   maxlength="15" minlength="5"  placeholder="Enter the username" required ></p> 
        </div>
       
         <div> 
              <label> E-mail address </label>
-            <p><input type="email"    name="Email"  placeholder="Enter the Email" required></p>
+            <p><input type="email"     name="Email"  placeholder="Enter the Email" required></p>
         </div> 
        
         
        
        <div> 
           <label for="gf">password </label>
-           	<p><input type="password" id="gf" name="password"  pattern="[A-Za-z\d\.\$\%\^\&\*\@\)]{10,14}"  placeholder="Enter the password" required  maxlength="14" minlength="10" ></p>
+           	<p><input type="password"   id="gf" name="password"  pattern="[A-Za-z\d\.\$\%\^\&\*\@\)]{10,14}"  placeholder="Enter the password" required  maxlength="14" minlength="10" ></p>
        </div> 
        
        <div> 
          <label>  confirm  password </label>
-          <p><input type="password" name="agin" pattern="[A-Za-z\d\.\$\%\^\&\*\@\)]{10,14}"  placeholder="Enter the  confirm  password" required  maxlength="14" minlength="10"></p>
+          <p><input type="password"   name="agin" pattern="[A-Za-z\d\.\$\%\^\&\*\@\)]{10,14}"  placeholder="Enter the  confirm  password" required  maxlength="14" minlength="10"></p>
      </div> 
      
       

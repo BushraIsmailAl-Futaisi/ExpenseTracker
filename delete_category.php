@@ -1,5 +1,4 @@
-
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
     <head> <button>  <a href= "../ExpenseTracker/view_category.php"><strong>Return</strong></a></button></head>
     <body style="background-color:lavenderblush"></body>
@@ -20,7 +19,7 @@
        {
          echo$_SESSION['Email'];
        }
-
+       $id=$_SESSION['Id_number'];
       }
     ?>
 
@@ -30,21 +29,20 @@
 <?php
 
 $num=$_GET['number_category'];
-
 require_once 'database.php'; 
 $conn = new mysqli($hn, $un, $pw, $db);
-
-$query = "SELECT user_id,number_category,category,mony,soucer_mony,Data,Time,Write_a_note FROM addcategory WHERE number_category='$num'"; // select query
-
-$result = $conn->query($query); // fetch data
-if (!$result) {
-   // echo "<p>Unable to execute the query.</p> ";
-   // echo $query;
+/*****************************/ 
+$qu= "SELECT user_id,number_category,category,mony,soucer_mony,Data,Time,Write_a_note FROM addcategory WHERE number_category='$num' AND user_id ='$id'";
+    $result2 = $conn->query($qu); // fetch data
+     if (!$result2) {
+     echo "<p>Unable to execute the query.</p> ";
+     echo $query;
     die($conn->error);
-}
-$data = $result->fetch_array(MYSQLI_ASSOC);
-if (isset($_POST['update'])) // when click on Update button
-{
+     }
+     ////////////
+    $data= $result2->fetch_array(MYSQLI_ASSOC);
+if (isset($_POST['delete'])) // when click on Update button
+{       
     $Cate = $_POST['category'];
     $Mony = $_POST['mony'];
     $soucer= $_POST['soucer_mony'];
@@ -52,29 +50,32 @@ if (isset($_POST['update'])) // when click on Update button
     $TIME = $_POST['Time'];
     $note = $_POST['Write_a_note'];
     $TIME = $_POST['Time'];
-     echo"$query";
-     echo"<br>";
-    $query = "update addcategory set category='$Cate',mony='$Mony',soucer_mony='$soucer', Data='$DATA',Time='$TIME',Write_a_note='$note' where  number_category='$num'";
-     $edit = $conn->query($query);
-    echo"$query";
-   
-    if ($edit) {
-        $conn->close(); // Close connection
-        header("location:Home page.php"); // redirects to all records page
-        exit;
-    } else {
-        echo "<p>Unable to execute the query.</p> ";
-        echo $query;
-        die($conn->error);
-    }
-}
+    
+     
+     $query2 ="Delete from financial_amount where username_id='$id'AND number_addcategory='$num' ";
+     $delete2=  $conn->query($query2);
+////////////////////////////////////////////////
+     $query1 ="Delete from addcategory where user_id ='$id' AND number_category='$num'";
+     $delete1 =  $conn->query($query1);
+     if($delete1)
+     {
+         $conn->close();// Close connection
+         header("location:Home page.php"); 
+         exit;
+     }
+     else
+     {
+         echo "<p>Unable to execute the query.</p> ";
+         echo $query1;
+         die ($conn -> error);
 
+     }   
+     
+    }
 
 ?>
  
-<h3>Update Data</h3>
-<!-- style="background-color:  rgba(250, 31, 31, 0.080)-->
-<form method="POST">
+ <form method="POST">
     <select  name="category"  value="">
             <p><option value="" ><?php echo $data['category']?></option>
              <p><option value="Clothes" >Clothes</option>
@@ -92,9 +93,6 @@ if (isset($_POST['update'])) // when click on Update button
     <input type="text" name="Time" value="<?php echo $data['Time'] ?>" placeholder="Enter Time" Required>
     <input type="text" name="Write_a_note" value="<?php echo $data['Write_a_note'] ?>" placeholder="Enter note" Required>
 
-
-
-
-
-    <input type="submit" name="update" value="Update">
+    <input type="submit" name="delete" value="delete">
+   
 </form>
