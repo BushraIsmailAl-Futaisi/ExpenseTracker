@@ -3,7 +3,7 @@
 
 <head>
   <title>Display all books from Database</title>
-  <button>  <a href= "../ExpenseTracker/Home page.php"><strong>Return</strong></a></button>
+  <button>  <a href= "../ExpenseTracker/serch_Expense.php"><strong>Return</strong></a></button>
 </head>
 <center align="left"> <img alt="user "src="../ExpenseTracker\icon\profile.png" style="width: 2%;" / >
     <?php
@@ -47,6 +47,16 @@
       </tr>
 
       <?php
+       if(isset($_POST['serch'])){
+        $data1=$_POST['Data'];
+    
+ 
+     if (!$data1 ) {
+        echo '<p>You have not entered search details.<br/>
+        Please go back and try again.</p>';
+        exit;
+     }
+     //////////////////////////
       
        $id=$_SESSION['Id_number'];
       
@@ -59,7 +69,7 @@
         exit;
       }
      
-      $query = "SELECT username_id,number_addcategory,number,expenses,soucer_mony,Write_anote,data FROM financial_amount WHERE username_id='$id'";
+      $query = "SELECT username_id,number_addcategory,number,expenses,soucer_mony,Write_anote,data FROM financial_amount WHERE username_id='$id' AND data='$data1'";
      // echo'<br>';
      //echo "$query";
       
@@ -102,7 +112,7 @@
 
         </tr>
         <?php
-      }
+      }}
       ?>
     </table>
     

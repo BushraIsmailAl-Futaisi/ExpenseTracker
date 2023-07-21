@@ -46,7 +46,7 @@
          <button> <a href= "../ExpenseTracker/Add category.php"><strong>Add category</strong></a></button>
          <button> <a href= "../ExpenseTracker/Edit_username.php"><strong> Edit Username</strong></a></button>
          <button> <a href= "../ExpenseTracker/view_category.php"><strong> All_category</strong></a></button>
-         <button> <a href= "../ExpenseTracker/view_Expense.php"><strong> ALL_Expense</strong></a></button>
+         <button> <a href= "../ExpenseTracker/serch_Expense.php"><strong> ALL_Expense</strong></a></button>
         <center><label>Search</label>
         <input type="search"  placeholder="write the search"></center>
         <h2>Expense tracker</h2>
