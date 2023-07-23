@@ -1,8 +1,14 @@
+<!--Bushra Ismail Al-Futaisi-->
+<!-- This page is to display a table that is located in the database(financial_amount) 
+is expense with the category 
+It opens to other pages  to edit the category (Edit_Expense.php),
+to delete the category(delete Expense.php) -->
 <!DOCTYPE html>
 <html>
 
 <head>
   <title>Display all books from Database</title>
+  <link rel="stylesheet"href="css\forall.css">
   <button>  <a href= "../ExpenseTracker/serch_Expense.php"><strong>Return</strong></a></button>
 </head>
 <center align="left"> <img alt="user "src="../ExpenseTracker\icon\profile.png" style="width: 2%;" / >
@@ -29,8 +35,8 @@
     
   </center>
 <body  style="background-color:  rgba(250, 31, 31, 0.080)">
-
-  <h2>Books Details</h2>
+<center>
+  <h2>ExpenseTracker </h2>
   <form  method="post"  style="background-color:  rgba(250, 31, 31, 0.075); width: 100%; height: 10%;">
 
     <table border="2"  style="background-color:  rgba(250, 31, 31, 0.080)">
@@ -38,20 +44,20 @@
         <td>user_id</td>
         <td>number_category</td>
         <td>number</td>
+        <td>category</td>
         <td>expenses</td>
-        <td>soucer_mony</td>
         <td>Write_anote</td>
         <td>Data</td>
         <td>Edit</td>
         <td>Delete</td>
       </tr>
-
+    </center>
       <?php
        if(isset($_POST['serch'])){
-        $data1=$_POST['Data'];
-    
- 
-     if (!$data1 ) {
+        $data1=$_POST['Data1'];
+        $data2=$_POST['Data2'];
+         $namec=$_POST['soon'];
+     if (!$data1 || !$data2|| !$namec) {
         echo '<p>You have not entered search details.<br/>
         Please go back and try again.</p>';
         exit;
@@ -68,9 +74,9 @@
         echo $conn->error;
         exit;
       }
-     
-      $query = "SELECT username_id,number_addcategory,number,expenses,soucer_mony,Write_anote,data FROM financial_amount WHERE username_id='$id' AND data='$data1'";
-     // echo'<br>';
+      $query ="SELECT financial_amount.username_id,financial_amount.number_addcategory,financial_amount.number,financial_amount.expenses,financial_amount.Write_anote,financial_amount.data,addcategory.category FROM financial_amount JOIN addcategory ON addcategory.number_category=financial_amount.number_addcategory WHERE financial_amount.username_id='$id' AND financial_amount.data BETWEEN '$data1' AND '$data2'AND addcategory.category ='$namec'";
+      /*"SELECT username_id,number_addcategory,number,expenses,Write_anote,data FROM financial_amount WHERE username_id='$id' AND data  BETWEEN '$data1' AND '$data2'";
+     // echo'<br>';*/
      //echo "$query";
       
       $result = $conn->query($query);
@@ -94,10 +100,10 @@
             <?php echo $data['number']; ?>
           </td>
           <td>
-            <?php echo $data['expenses']; ?>
+            <?php echo $data['category']; ?>
           </td>
           <td>
-            <?php echo $data['soucer_mony']; ?>
+            <?php echo $data['expenses']; ?>
           </td>
           <td>
             <?php echo $data['Write_anote']; ?>

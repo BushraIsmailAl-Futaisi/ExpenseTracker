@@ -1,5 +1,7 @@
 <!--Bushra Ismail Al-Futaisi
-    This page follows the login page(login.php)-->
+    This page follows the login page(login.php) -->
+    <!--This page has a condition that if the password and email are found in the database
+     -->
   <?php
    
 $email=$_POST['Email'];
@@ -25,7 +27,7 @@ if ($connection->connect_error) {
 }
 
 $query = "SELECT Id_number,Email,password	 FROM username WHERE Email='$email' and password= '$password'";
-//echo $query;
+
 $result=$connection->query($query);
 
 if (!$result) 
@@ -41,7 +43,7 @@ if($result->num_rows>0){
    $email=$_POST['Email'];
   $_SESSION['Email']=$email;
   $_SESSION['Id_number']=$row['Id_number'];
-  //echo $_SESSION['Id_number'];
+
    header("REFRESH:3;Home page.php");
 
 

@@ -9,6 +9,7 @@
     <meta charset="UTF-8". />
     <meta name=" About use" content="هذه صفحة تحتوي علي معلومات عن تتبع النفقات "/ >
     <title>About use </title>
+    <link rel="stylesheet"href="css\forall.css">
     <center align="left"> <img alt="user "src="../ExpenseTracker\icon\profile.png" style="width: 2%;" / >
     <?php
    session_start();
@@ -38,7 +39,8 @@
 
 <body>
     <header>
-        <button>  <a href= "../ExpenseTracker/Home page.php"><strong>Return</strong></a></button>
+      <br>
+         <a href= "../ExpenseTracker/Home page.php"><strong>Return</strong></a>
 <center><h1>information about expense track </h1></center>
       
     </header>

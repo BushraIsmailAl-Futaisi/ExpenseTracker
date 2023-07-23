@@ -1,6 +1,15 @@
+
+<!--
+  Bushra Ismail Al-Futaisi
+  This page deletes the bank from the database from a table(financial_amount)
+  and update from a table (addcategory)Let's return the value of many
+  The link to access it is(view_Expense.php)
+-->
 <!DOCTYPE html>
 <html>
-    <head> <button>  <a href= "../ExpenseTracker/view_Expense.php"><strong>Return</strong></a></button></head>
+    <head> <a href= "../ExpenseTracker/serch_Expense.php"><strong>Return</strong></a>
+    <link rel="stylesheet"href="css\forall.css">
+  </head>
     <body style="background-color:lavenderblush"></body>
     <center align="left"> <img alt="user "src="../ExpenseTracker\icon\profile.png" style="width: 2%;" / >
     <?php
@@ -34,7 +43,7 @@ $value=$_GET['expenses'];
 require_once 'database.php'; 
 $conn = new mysqli($hn, $un, $pw, $db);
 
-$query = "SELECT username_id,number_addcategory,number,expenses,soucer_mony,Write_anote,data FROM financial_amount WHERE number='$number'AND username_id='$id'"; // select query
+$query = "SELECT username_id,number_addcategory,number,expenses,Write_anote,data FROM financial_amount WHERE number='$number'AND username_id='$id'"; // select query
 
 $result = $conn->query($query); // fetch data
 if (!$result) {
@@ -56,7 +65,6 @@ $qu= "SELECT user_id,number_category,category,mony,soucer_mony,Data,Time,Write_a
 if (isset($_POST['delete'])) // when click on Update button
 {      
     $mony=$_POST['Mony'];
-   $Soucer=$_POST['Soucer'];
    $Note=$_POST['Note'];
     $Data=$_POST['DATA'];
 
@@ -93,14 +101,15 @@ if (isset($_POST['delete'])) // when click on Update button
 
 
 ?>
- 
+ <center>
 <h3>Update Data</h3>
 <!-- style="background-color:  rgba(250, 31, 31, 0.080)-->
 <form method="POST">
-    <input type="text" name="Mony" value="<?php echo $data['expenses'] ?>" placeholder="Enter the mony" Required>
-    <input type="text" name="Soucer" value="<?php echo $data['soucer_mony'] ?>" placeholder="Enter the soucer_mony" Required>
-    <input type="text" name="Note" value="<?php echo $data['Write_anote'] ?>" placeholder="Enter data" Required>
-    <input type="text" name="DATA" value="<?php echo $data['data'] ?>" placeholder="Enter Time" Required>
+  
+    <input type="text" name="Mony"  id='no' value="<?php echo $data['expenses'] ?>" placeholder="Enter the mony" Required>
+    <input type="text" name="Note"   id='no' value="<?php echo $data['Write_anote'] ?>" placeholder="Enter data" Required>
+    <input type="text" name="DATA"   id='no' value="<?php echo $data['data'] ?>" placeholder="Enter Time" Required>
    
-    <input type="submit" name="delete" value="delete">
+    <input type="submit" name="delete"  id='no' value="delete">
+  </center>
 </form>

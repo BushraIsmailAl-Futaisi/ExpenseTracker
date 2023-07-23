@@ -1,7 +1,14 @@
 
-  <!DOCTYPE html>
+ <!--
+  Bushra Ismail Al-Futaisi
+  This page edit the category from the database from a table(addcategory)
+  The link to access it is(view_category.php)
+-->
+ 
+ <!DOCTYPE html>
 <html>
-    <head> <button>  <a href= "../ExpenseTracker/view_category.php"><strong>Return</strong></a></button></head>
+    <head> <a href= "../ExpenseTracker/Serch_category.php"><strong>Return</strong></a>
+    <link rel="stylesheet"href="css\forall.css"></head>
     <body style="background-color:lavenderblush"></body>
     <center align="left"> <img alt="user "src="../ExpenseTracker\icon\profile.png" style="width: 2%;" / >
     <?php
@@ -71,11 +78,12 @@ if (isset($_POST['update'])) // when click on Update button
 
 
 ?>
- 
+ <center>  
 <h3>Update Data</h3>
 <!-- style="background-color:  rgba(250, 31, 31, 0.080)-->
 <form method="POST">
-    <select  name="category"  value="">
+
+    <select  id='st' name="category"  value="">
             <p><option value="" ><?php echo $data['category']?></option>
              <p><option value="Clothes" >Clothes</option>
              <option value="Car">Car</option>
@@ -85,16 +93,24 @@ if (isset($_POST['update'])) // when click on Update button
              <option  value="Travel">Travel</option>
              </p>
            </select>
+     
+          
+           <select id="st"   name="soucer_mony" required>
+            <option value="" ><?php echo $data['soucer_mony'] ?></option>
+             <option value="card" >card</option>
+             <option value="salary">salary</option>
+             <option value="savings">savings</option>
+           </select> 
 
-    <input type="text" name="mony" value="<?php echo $data['mony'] ?>" placeholder="Enter the mony" Required>
-    <input type="text" name="soucer_mony" value="<?php echo $data['soucer_mony'] ?>" placeholder="Enter the soucer_mony" Required>
-    <input type="text" name="Data" value="<?php echo $data['Data'] ?>" placeholder="Enter data" Required>
-    <input type="text" name="Time" value="<?php echo $data['Time'] ?>" placeholder="Enter Time" Required>
-    <input type="text" name="Write_a_note" value="<?php echo $data['Write_a_note'] ?>" placeholder="Enter note" Required>
+    <input type="text" name="mony" id='no' value="<?php echo $data['mony'] ?>" placeholder="Enter the mony" Required>
+    <input type="text" name="Data" id='no' value="<?php echo $data['Data'] ?>" placeholder="Enter data" Required>
+    <input type="text" name="Time" id='no' value="<?php echo $data['Time'] ?>" placeholder="Enter Time" Required>
+    <input type="text" name="Write_a_note"  id='no' value="<?php echo $data['Write_a_note'] ?>" placeholder="Enter note" Required>
 
 
+   
+  
 
-
-
-    <input type="submit" name="update" value="Update">
+    <input type="submit" name="update" id='no' value="Update">
+</center>
 </form>

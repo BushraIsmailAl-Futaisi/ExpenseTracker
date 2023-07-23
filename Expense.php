@@ -1,5 +1,6 @@
 <!--Bushra Ismail Al-Futaisi-->
-<!--This is the Expense page on the Expense tracking website-->
+<!--This page is for me to add expenses to my categories
+The link to access it is(view_category.php)-->
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,7 +8,8 @@
     <meta charset="UTF-8". />
     <meta name=" mony" content="This is the Money page is for a User" / >
     <title>Expense tracke </title>
-    <button>  <a href= "../ExpenseTracker/view_category.php"><strong>Return</strong></a></button>
+    <link rel="stylesheet"href="css\forall.css">
+    <a href= "../ExpenseTracker/Serch_category.php"><strong>Return</strong></a>
     <center align="left"> <img alt="user "src="../ExpenseTracker\icon\profile.png" style="width: 2%;" / >
 
     <?php
@@ -54,26 +56,35 @@ if (!$SHOW) {
    // echo $query;
     die($conn->error);
 }
+
+
 $data = $SHOW->fetch_array(MYSQLI_ASSOC);
+
 if (isset($_POST['submit'])) // when click on Update button
 {
     $Cate = $_POST['category'];
-    $Mony = $_POST['mony'];
+    $Mony1 = $_POST['mony'];
     $soucer= $_POST['soucer_mony'];
     $DATA = $_POST['Data'];
     $TIME = $_POST['Time'];
     $note = $_POST['Write_a_note'];
     $TIME = $_POST['Time'];
     /////////////////////////////////
-    $mony=$_POST['Mony'];
-   $Soucer=$_POST['Soucer'];
+    $mony2=$_POST['Mony'];
    $Note=$_POST['Note'];
     $Data=$_POST['DATA'];
     // echo"$query";
     // echo"<br>";
+      try{
+        if($mony2 >  $Mony1){ 
+          throw new Exception("erorr the money more than in the mone in category");
+        } 
+
+    else{
+      
     $id=$_SESSION['Id_number'];
-     $query = "INSERT INTO financial_amount(username_id,number_addcategory,expenses,soucer_mony,Write_anote,data)  VALUES 
-     ('$id','$num','$mony','$Soucer','$Note','$Data')" ;
+     $query = "INSERT INTO financial_amount(username_id,number_addcategory,expenses,Write_anote,data)  VALUES 
+     ('$id','$num','$mony2','$Note','$Data')" ;
      //echo'<br>';
     // echo $query;
      //echo'<br>';
@@ -89,7 +100,8 @@ if (isset($_POST['submit'])) // when click on Update button
      }
      
     // $_SESSION['mony']=$Mony; 
-     $newMony=$Mony-$mony;
+     $newMony=$Mony1-$mony2;
+     
      $updata="update addcategory set mony='$newMony' where  number_category='$num'";
      $edit = $conn->query($updata);
      echo"$query";
@@ -105,8 +117,15 @@ if (isset($_POST['submit'])) // when click on Update button
      }
         //close connection
         $conn -> close();
+  
     
+    }     
+  }
+  catch (Exception $e) {
+    echo 'Message: ' . $e->getMessage();
 }
+}
+
 
 
 ?>
@@ -114,8 +133,9 @@ if (isset($_POST['submit'])) // when click on Update button
  
 <body     style="background-color:  rgba(250, 31, 31, 0.080)">
 <br>
-<form method="POST"  style="background-color:  rgba(250, 31, 31, 0.080)">
-             <select  name="category"  value="">
+<form method="POST" style="background-color:  rgba(250, 31, 31, 0.080)">
+<center>
+             <select   id='st' name="category"  value="">
              <option value=""><?php echo $data['category']?></option>
              <p><option value="Clothes" >Clothes</option>
              <option value="Car">Car</option>
@@ -126,41 +146,44 @@ if (isset($_POST['submit'])) // when click on Update button
              </p>
            </select>
 
-    <input type="text" name="mony" value="<?php echo $data['mony'] ?>" placeholder="Enter the mony" Required>
-    <input type="text" name="soucer_mony" value="<?php echo $data['soucer_mony'] ?>" placeholder="Enter the soucer_mony" Required>
-    <input type="text" name="Data" value="<?php echo $data['Data'] ?>" placeholder="Enter data" Required>
-    <input type="text" name="Time" value="<?php echo $data['Time'] ?>" placeholder="Enter Time" Required>
-    <input type="text" name="Write_a_note" value="<?php echo $data['Write_a_note'] ?>" placeholder="Enter note" Required>
+
+           <select id="st"   name="soucer_mony" required>
+            <option value="" ><?php echo $data['soucer_mony'] ?></option>
+             <option value="card" >card</option>
+             <option value="salary">salary</option>
+             <option value="savings">savings</option>
+           </select> 
+
+    <input type="text" name="mony" id='no' value="<?php echo $data['mony'] ?>" placeholder="Enter the mony" Required>
+   
+    <input type="text" name="Data" id='no' value="<?php echo $data['Data'] ?>" placeholder="Enter data" Required>
+    <input type="text" name="Time"  id='no' value="<?php echo $data['Time'] ?>" placeholder="Enter Time" Required>
+    <input type="text" name="Write_a_note"  id='no' value="<?php echo $data['Write_a_note'] ?>" placeholder="Enter note" Required>
 </br>
        <br>
        <div> 
           <label>The mony </label>
-          <p><input type="text"   name="Mony"  placeholder="Enter the mony" required ></p> 
+          <p><input type="text"   name="Mony"  id='no'  placeholder="Enter the mony" required ></p> 
        </div>
-       <div> 
-         <label>soucer_mony </label>
-         <p><input type="text"   name="Soucer" placeholder="Enter the soucer_mony" ></p> 
-         </div>
-         
-        <div> 
-             <label> note </label>
-             <p><input type="text"    name="Note"  placeholder="Enter the commnt" ></p>
+      
+           <label> note </label>
+             <p><input type="text"    name="Note" id='no'  placeholder="Enter the commnt" ></p>
         </div> 
        
         <div> 
              <label> Data </label>
-             <p><input type="date"    name="DATA"  required  ></p>
+             <p><input type="date"    name="DATA" id='no' required  ></p>
         </div> 
        
        <div> 
        
-             <input type="submit" name="submit" value="save">
-             <input type="reset"  name="reset" value="Delete all">
+             <input type="submit" name="submit" id='no' value="save">
+             <input type="reset"  name="reset" id='no' value="Delete all">
       </div> 
       
 </br>
       
-      
+</center> 
 
 </form>
 </body>

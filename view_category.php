@@ -1,3 +1,7 @@
+<!--Bushra Ismail Al-Futaisi-->
+<!-- This page is to display a table that is located in the database(addcategory) is category 
+It opens to other pages  to edit the category (edit_category.php),
+to delete the category(delete_category.php) ,to  add expense to the category(Expense.php)-->
 
 
 <!DOCTYPE html>
@@ -5,7 +9,8 @@
 
 <head>
   <title>Display all books from Database</title>
-  <button>  <a href= "../ExpenseTracker/Home page.php"><strong>Return</strong></a></button>
+  <link rel="stylesheet"href="css\forall.css">
+  <button>  <a href= "../ExpenseTracker/Serch_category.php"><strong>Return</strong></a></button>
 </head>
 <center align="left"> <img alt="user "src="../ExpenseTracker\icon\profile.png" style="width: 2%;" / >
     <?php
@@ -31,10 +36,10 @@
     
   </center>
 <body  style="background-color:  rgba(250, 31, 31, 0.080)">
-
-  <h2>Books Details</h2>
+<center>
+  <h2>ExpenseTracker</h2>
   <form  method="post"  style="background-color:  rgba(250, 31, 31, 0.075); width: 100%; height: 10%;">
-
+  
     <table border="2"  style="background-color:  rgba(250, 31, 31, 0.080)">
       <tr style="background-color:ivory">
         <td>user_id</td>
@@ -49,8 +54,17 @@
         <td>Delete</td>
         <td>Expense</td>
       </tr>
-
+    </center>
       <?php
+       if(isset($_POST['serch'])){
+        $cate=$_POST['Addcategory'];
+    
+ 
+     if (!$cate) {
+        echo '<p>You have not entered search details.<br/>
+        Please go back and try again.</p>';
+        exit;
+     }
       
        $id=$_SESSION['Id_number'];
       
@@ -63,7 +77,7 @@
         exit;
       }
      
-      $query = "SELECT user_id,number_category,category,mony,soucer_mony,Data,Time,Write_a_note FROM addcategory WHERE user_id='$id'";
+      $query = "SELECT user_id,number_category,category,mony,soucer_mony,Data,Time,Write_a_note FROM addcategory WHERE user_id='$id' AND category='$cate'";
      // echo'<br>';
      //echo "$query";
       
@@ -109,7 +123,7 @@
 
         </tr>
         <?php
-      }
+      }}
       ?>
     </table>
     

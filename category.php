@@ -1,3 +1,38 @@
+<!--Bushra Ismail Al-Futaisi
+  This page is my add cetegories by using my sql commands it-linked to my page(Add category.php)-->
+
+<!DOCTYPE html>
+<html>
+<head>
+   
+    <link rel="stylesheet"href="css\forall.css">
+    <center align="left"> <img alt="user "src="../ExpenseTracker\icon\profile.png" style="width: 2%;" / >
+    </head>
+     <body style="background-color:  rgba(250, 31, 31, 0.080)">
+    <?php
+   session_start();
+   if(empty( $_SESSION['user']) && (empty( $_SESSION['Email']))){
+    
+    echo' no_Username';
+   }
+    
+    else
+      { if(!empty( $_SESSION['user']) )
+       {
+        echo$_SESSION['user'];
+       }
+       else
+       {
+         echo$_SESSION['Email'];
+       }
+
+      }
+    ?>
+
+  </center>
+
+
+
 <?php
 if(isset($_POST['submit'])){
 
@@ -59,6 +94,7 @@ if ($conn->connect_error) {
        
 
   ?>
-</body>
+
+</body >
 </html>
 

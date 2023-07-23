@@ -1,6 +1,13 @@
+<!--
+  Bushra Ismail Al-Futaisi
+  This page update  the bank from the database from a table(financial_amount)
+  and update from a table (addcategory)
+  The link to access it is(view_Expense.php)
+-->
 <!DOCTYPE html>
 <html>
-    <head> <button>  <a href= "../ExpenseTracker/view_Expense.php"><strong>Return</strong></a></button></head>
+    <head>   <a href= "../ExpenseTracker/serch_Expense.php"><strong>Return</strong></a></head>
+    <link rel="stylesheet"href="css\forall.css">
     <body style="background-color:lavenderblush"></body>
     <center align="left"> <img alt="user "src="../ExpenseTracker\icon\profile.png" style="width: 2%;" / >
     <?php
@@ -34,7 +41,7 @@ $value=$_GET['expenses'];
 require_once 'database.php'; 
 $conn = new mysqli($hn, $un, $pw, $db);
 
-$query = "SELECT username_id,number_addcategory,number,expenses,soucer_mony,Write_anote,data FROM financial_amount WHERE number='$number'"; // select query
+$query = "SELECT username_id,number_addcategory,number,expenses,Write_anote,data FROM financial_amount WHERE number='$number'"; // select query
 
 $result = $conn->query($query); // fetch data
 if (!$result) {
@@ -56,13 +63,12 @@ $qu= "SELECT user_id,number_category,category,mony,soucer_mony,Data,Time,Write_a
 if (isset($_POST['update'])) // when click on Update button
 {      
     $mony=$_POST['Mony'];
-   $Soucer=$_POST['Soucer'];
    $Note=$_POST['Note'];
     $Data=$_POST['DATA'];
 
      echo"$query";
      echo"<br>";
-    $query = "update financial_amount set expenses='$mony',soucer_mony='$Soucer',Write_anote='$Note',data='$Data' where number='$number'";
+    $query = "update financial_amount set expenses='$mony',Write_anote='$Note',data='$Data' where number='$number'";
      $edit = $conn->query($query);
      $value2=$data1['mony'];
      $value3=$value2+$value;
@@ -88,14 +94,15 @@ if (isset($_POST['update'])) // when click on Update button
 
 
 ?>
- 
+ <center>
 <h3>Update Data</h3>
 <!-- style="background-color:  rgba(250, 31, 31, 0.080)-->
 <form method="POST">
-    <input type="text" name="Mony" value="<?php echo $data['expenses'] ?>" placeholder="Enter the mony" Required>
-    <input type="text" name="Soucer" value="<?php echo $data['soucer_mony'] ?>" placeholder="Enter the soucer_mony" Required>
-    <input type="text" name="Note" value="<?php echo $data['Write_anote'] ?>" placeholder="Enter data" Required>
-    <input type="text" name="DATA" value="<?php echo $data['data'] ?>" placeholder="Enter Time" Required>
+
+    <input type="text" id='no' name="Mony" value="<?php echo $data['expenses'] ?>" placeholder="Enter the mony" Required>
+    <input type="text" id='no' name="Note" value="<?php echo $data['Write_anote'] ?>" placeholder="Enter data" Required>
+    <input type="text"  id='no'name="DATA" value="<?php echo $data['data'] ?>" placeholder="Enter Time" Required>
    
-    <input type="submit" name="update" value="Update">
+    <input type="submit"  id='no'name="update" value="Update">
+  </center>
 </form>

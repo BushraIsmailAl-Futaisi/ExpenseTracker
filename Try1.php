@@ -1,11 +1,17 @@
-
+<!--Bushra Ismail Al-Futaisi-->
+<!-- This page follows the login page(Signup.php)
+  This page is for me to create an account and make sure that
+ the password and password confirmation are the same as for 
+ me to register in the database
+-->
 <!DOCTYPE html>
 <html>
 <head>
   <title>expensetracker</title>
+  <link rel="stylesheet"href="css\forall.css">
   
 </head>
-<body>
+<body style="background-color:  rgba(250, 31, 31, 0.080)">
   <h1>welcome to expensetracker</h1>
  
   
