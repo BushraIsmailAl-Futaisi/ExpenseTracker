@@ -2,6 +2,42 @@
     This page follows the login page(login.php) -->
     <!--This page has a condition that if the password and email are found in the database
      -->
+     
+
+<!DOCTYPE html>
+<html>
+<head>
+   
+    <link rel="stylesheet"href="css\forall.css">
+    <center align="left"> <img alt="user "src="../ExpenseTracker\icon\profile.png" style="width: 2%;" / >
+    <?php
+   session_start();
+   if(empty( $_SESSION['user']) && (empty( $_SESSION['Email']))){
+    
+    echo' no_Username';
+   }
+    
+    else
+      { if(!empty( $_SESSION['user']) )
+       {
+        echo$_SESSION['user'];
+       }
+       else
+       {
+         echo$_SESSION['Email'];
+       }
+
+      }
+    ?>
+
+  </center>
+
+
+</head>
+
+
+<body  style="background-color:  rgba(250, 31, 31, 0.080)">
+</body>
   <?php
    
 $email=$_POST['Email'];
@@ -37,9 +73,9 @@ if (!$result)
     die ($connection -> error);
 }
 $row = $result->fetch_array(MYSQLI_ASSOC);
-echo "<p>Number  found: ".$result->num_rows."</p>";
+echo "<p>you login in this page: ".$result->num_rows."</p>";
 if($result->num_rows>0){
-   session_start();
+  
    $email=$_POST['Email'];
   $_SESSION['Email']=$email;
   $_SESSION['Id_number']=$row['Id_number'];

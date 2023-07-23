@@ -7,10 +7,15 @@
 -->
 <!DOCTYPE html>
 <html>
-    <head> <a href= "../ExpenseTracker/serch_Expense.php"><strong>Return</strong></a>
+    <head>
     <link rel="stylesheet"href="css\forall.css">
   </head>
-    <body style="background-color:lavenderblush"></body>
+    <body style="background-color:  rgba(250, 31, 31, 0.080)">
+    <header>
+      <p>
+    <a href= "../ExpenseTracker/serch_Expense.php"><strong>Return</strong></a></p>
+    </header>
+  </body>
     <center align="left"> <img alt="user "src="../ExpenseTracker\icon\profile.png" style="width: 2%;" / >
     <?php
    session_start();
@@ -102,13 +107,15 @@ if (isset($_POST['delete'])) // when click on Update button
 
 ?>
  <center>
-<h3>Update Data</h3>
+<h3>Delete Data</h3>
 <!-- style="background-color:  rgba(250, 31, 31, 0.080)-->
 <form method="POST">
-  
-    <input type="text" name="Mony"  id='no' value="<?php echo $data['expenses'] ?>" placeholder="Enter the mony" Required>
-    <input type="text" name="Note"   id='no' value="<?php echo $data['Write_anote'] ?>" placeholder="Enter data" Required>
-    <input type="text" name="DATA"   id='no' value="<?php echo $data['data'] ?>" placeholder="Enter Time" Required>
+       <label>Mony</label> 
+    <input type="text" name="Mony"  id='no' value="<?php echo $data['expenses'] ?>" placeholder="Enter the mony" >
+    <label>Note</label> 
+    <input type="text" name="Note"   id='no' value="<?php echo $data['Write_anote'] ?>" placeholder="Enter data">
+    <label>Data</label> 
+    <input type="text" name="DATA"   id='no' value="<?php echo $data['data'] ?>" placeholder="Enter Time" >
    
     <input type="submit" name="delete"  id='no' value="delete">
   </center>

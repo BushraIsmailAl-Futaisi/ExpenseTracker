@@ -1,5 +1,7 @@
 <!--Bushra Ismail Al-Futaisi-->
-<!--This page allows me to enter the financial value, choose the category, add notes, the photo, and the date and day-->
+<!--This page allows me to enter the financial value,
+ choose the category, add notes, the photo, and the date and day
+This html page calls another php page(category.php)-->
 <!DOCTYPE html>
 <html>
 <head>

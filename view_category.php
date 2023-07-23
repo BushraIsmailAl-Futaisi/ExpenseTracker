@@ -10,7 +10,6 @@ to delete the category(delete_category.php) ,to  add expense to the category(Exp
 <head>
   <title>Display all books from Database</title>
   <link rel="stylesheet"href="css\forall.css">
-  <button>  <a href= "../ExpenseTracker/Serch_category.php"><strong>Return</strong></a></button>
 </head>
 <center align="left"> <img alt="user "src="../ExpenseTracker\icon\profile.png" style="width: 2%;" / >
     <?php
@@ -36,6 +35,9 @@ to delete the category(delete_category.php) ,to  add expense to the category(Exp
     
   </center>
 <body  style="background-color:  rgba(250, 31, 31, 0.080)">
+<header>
+  <p><a href= "../ExpenseTracker/Serch_category.php"><strong>Return</strong></a></p>
+</header>
 <center>
   <h2>ExpenseTracker</h2>
   <form  method="post"  style="background-color:  rgba(250, 31, 31, 0.075); width: 100%; height: 10%;">
@@ -118,7 +120,7 @@ to delete the category(delete_category.php) ,to  add expense to the category(Exp
            </td>
           <td><a href="edit_category.php?number_category=<?php echo $data['number_category'];?>">Edit</a></td>
           <td><a href="delete_category.php?number_category=<?php echo $data['number_category'];?>">Delete</a></td>
-          <td><a href="Expense.php?number_category=<?php echo $data['number_category'];?>">Expense</a></td>
+          <td><a href="Expense.php?number_category=<?php echo $data['number_category'];?>">Add Expense</a></td>
           </td>
 
         </tr>

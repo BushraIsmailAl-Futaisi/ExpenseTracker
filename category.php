@@ -70,7 +70,7 @@ if ($conn->connect_error) {
        echo' its connected';
     }
       
-   session_start();
+   
     $id=$_SESSION['Id_number'];
     $query = "INSERT INTO addcategory (user_id,category,mony,soucer_mony,Data,Time ,Write_a_note ) 
      VALUES ('$id','$gory','$value','$Soucer','$DATA','$TIME','$Note')";

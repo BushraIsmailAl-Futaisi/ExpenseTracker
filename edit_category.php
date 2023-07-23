@@ -7,9 +7,15 @@
  
  <!DOCTYPE html>
 <html>
-    <head> <a href= "../ExpenseTracker/Serch_category.php"><strong>Return</strong></a>
+    <head> 
     <link rel="stylesheet"href="css\forall.css"></head>
-    <body style="background-color:lavenderblush"></body>
+    <body style="background-color:  rgba(250, 31, 31, 0.080)">
+    <header>
+      <p>
+    <a href= "../ExpenseTracker/Serch_category.php"><strong>Return</strong></a>
+   </p>
+  </header>
+  </body>
     <center align="left"> <img alt="user "src="../ExpenseTracker\icon\profile.png" style="width: 2%;" / >
     <?php
    session_start();
@@ -82,7 +88,7 @@ if (isset($_POST['update'])) // when click on Update button
 <h3>Update Data</h3>
 <!-- style="background-color:  rgba(250, 31, 31, 0.080)-->
 <form method="POST">
-
+     <label>name category</label>
     <select  id='st' name="category"  value="">
             <p><option value="" ><?php echo $data['category']?></option>
              <p><option value="Clothes" >Clothes</option>
@@ -91,22 +97,25 @@ if (isset($_POST['update'])) // when click on Update button
              <option  value="Hospital"> Hospital</option>
              <option value=" Wifi"> Wifi</option>
              <option  value="Travel">Travel</option>
-             </p>
+             
            </select>
      
-          
-           <select id="st"   name="soucer_mony" required>
+           <label>soucer_mony</label>
+           <select id="st"   name="soucer_mony" >
             <option value="" ><?php echo $data['soucer_mony'] ?></option>
              <option value="card" >card</option>
              <option value="salary">salary</option>
              <option value="savings">savings</option>
            </select> 
-
-    <input type="text" name="mony" id='no' value="<?php echo $data['mony'] ?>" placeholder="Enter the mony" Required>
-    <input type="text" name="Data" id='no' value="<?php echo $data['Data'] ?>" placeholder="Enter data" Required>
-    <input type="text" name="Time" id='no' value="<?php echo $data['Time'] ?>" placeholder="Enter Time" Required>
-    <input type="text" name="Write_a_note"  id='no' value="<?php echo $data['Write_a_note'] ?>" placeholder="Enter note" Required>
-
+           <label>mony</label>
+    <input type="text" name="mony" id='no' value="<?php echo $data['mony'] ?>" placeholder="Enter the mony" >
+            <label>Data</label>
+    <input type="text" name="Data" id='no' value="<?php echo $data['Data'] ?>" placeholder="Enter data" ></p>
+           <p> <label>Time</label>
+    <input type="text" name="Time" id='no' value="<?php echo $data['Time'] ?>" placeholder="Enter Time">
+            <label>Write_a_note</label>
+    <input type="text" name="Write_a_note"  id='no' value="<?php echo $data['Write_a_note'] ?>" placeholder="Enter note" >
+    </p>
 
    
   

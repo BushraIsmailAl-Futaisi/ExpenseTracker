@@ -6,10 +6,9 @@ This form page calls another php page(view_Expense.php)-->
 <head>
   
     <meta charset="UTF-8". />
-    <meta name=" mony" content="This is the Money page is for a User" / >
     <link rel="stylesheet"href="css\forall.css">
     <title>Expense tracke </title>
-     <a href= "../ExpenseTracker/Home page.php"><strong>Return</strong></a>
+     
     <center align="left"> <img alt="user "src="../ExpenseTracker\icon\profile.png" style="width: 2%;" / >
 
     <?php
@@ -34,26 +33,29 @@ This form page calls another php page(view_Expense.php)-->
      <?php
   
   ?>
-     <body  style="background-color:  rgba(250, 31, 31, 0.0100)">
+     <body  style="background-color:  rgba(250, 31, 31, 0.080)">
+     <header>
+      <p><a href= "../ExpenseTracker/Home page.php"><strong>Return</strong></a></p>
+     </header>
      <div> 
      
      <form method="POST"  class="y" action="view_Expense.php" style="background-color:  rgba(250, 31, 31, 0.080)">
       <center>
      <div>
        <p>
+       <label>from data</label> 
        <input type="date" id='no' name="Data1" required>
-       </p>
-    </div>
-    <div>
-       <p>
+     
+      
+       <label>To data</label> 
        <input type="date" id='no' name="Data2" required>
        </p>
     </div>
   
     <div>
-       <p> <label>name category</label> </p>    
+        <label>name category</label>     
        <input type="text" id='no' name="soon" required>
-       
+         </p>
     </div>
     <div>
       <p>

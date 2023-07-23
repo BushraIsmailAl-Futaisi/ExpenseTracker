@@ -9,7 +9,6 @@ The link to access it is(view_category.php)-->
     <meta name=" mony" content="This is the Money page is for a User" / >
     <title>Expense tracke </title>
     <link rel="stylesheet"href="css\forall.css">
-    <a href= "../ExpenseTracker/Serch_category.php"><strong>Return</strong></a>
     <center align="left"> <img alt="user "src="../ExpenseTracker\icon\profile.png" style="width: 2%;" / >
 
     <?php
@@ -77,7 +76,7 @@ if (isset($_POST['submit'])) // when click on Update button
     // echo"<br>";
       try{
         if($mony2 >  $Mony1){ 
-          throw new Exception("erorr the money more than in the mone in category");
+          throw new Exception("erorr the money more than in the mone in category or mony is -");
         } 
 
     else{
@@ -132,9 +131,12 @@ if (isset($_POST['submit'])) // when click on Update button
  </head>
  
 <body     style="background-color:  rgba(250, 31, 31, 0.080)">
+<header>
+<p><a href= "../ExpenseTracker/Serch_category.php"><strong>Return</strong></a></p>
+</header>
 <br>
 <form method="POST" style="background-color:  rgba(250, 31, 31, 0.080)">
-<center>
+<center>      <p> <label>name category</label>
              <select   id='st' name="category"  value="">
              <option value=""><?php echo $data['category']?></option>
              <p><option value="Clothes" >Clothes</option>
@@ -146,24 +148,26 @@ if (isset($_POST['submit'])) // when click on Update button
              </p>
            </select>
 
-
-           <select id="st"   name="soucer_mony" required>
+               <label>soucer_mony</label>
+           <select id="st"   name="soucer_mony" >
             <option value="" ><?php echo $data['soucer_mony'] ?></option>
              <option value="card" >card</option>
              <option value="salary">salary</option>
              <option value="savings">savings</option>
            </select> 
-
-    <input type="text" name="mony" id='no' value="<?php echo $data['mony'] ?>" placeholder="Enter the mony" Required>
-   
-    <input type="text" name="Data" id='no' value="<?php echo $data['Data'] ?>" placeholder="Enter data" Required>
-    <input type="text" name="Time"  id='no' value="<?php echo $data['Time'] ?>" placeholder="Enter Time" Required>
-    <input type="text" name="Write_a_note"  id='no' value="<?php echo $data['Write_a_note'] ?>" placeholder="Enter note" Required>
+           <label>mony</label>
+    <input type="text" name="mony" id='no' value="<?php echo $data['mony'] ?>" placeholder="Enter the mony">
+           <label>Data</label>
+    <input type="text" name="Data" id='no' value="<?php echo $data['Data'] ?>" placeholder="Enter data" ></p>
+         <p> <label>Time</label>
+    <input type="text" name="Time"  id='no' value="<?php echo $data['Time'] ?>" placeholder="Enter Time" >
+       <label>Write_a_note</label>
+    <input type="text" name="Write_a_note"  id='no' value="<?php echo $data['Write_a_note'] ?>" placeholder="Enter note" ></p>
 </br>
        <br>
        <div> 
           <label>The mony </label>
-          <p><input type="text"   name="Mony"  id='no'  placeholder="Enter the mony" required ></p> 
+          <p><input type="text"   name="Mony"  id='no' minlength="1"  placeholder="Enter the mony" required ></p> 
        </div>
       
            <label> note </label>

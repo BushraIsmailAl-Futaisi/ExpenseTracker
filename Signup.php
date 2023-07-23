@@ -10,7 +10,7 @@ This form page calls another php page(Try1.php)-->
     
     <link rel="stylesheet"href="css\forall.css">
     <title>Expense tracke </title>
-     <a href= "../ExpenseTracker/Home page.php"><strong>Return</strong></a>
+    
      
     <center align="left"> <img alt="user "src="../ExpenseTracker\icon\profile.png" style="width: 2%;" / >
     <?php
@@ -38,6 +38,10 @@ This form page calls another php page(Try1.php)-->
 
 </head>
 <body     style="background-color:  rgba(250, 31, 31, 0.080)">
+<header>
+  <p>
+<a href= "../ExpenseTracker/Home page.php"><strong>Return</strong></a></p>
+</header>
     <form    action="Try1.php"   method="post"   style="background-color:  rgba(250, 31, 31, 0.075); width: 100%; height: 10%;" > 
      <center>
        
@@ -69,10 +73,7 @@ This form page calls another php page(Try1.php)-->
         <p>  <div> 
              <input  id=" st"type="checkbox" id='no' name="sample linking agreement" value=" ample linking agreement">
              <label for="st"> agreement</label>
-             <?php
-                echo'<br>'; 
-                echo __FILE__;
-             ?>
+             
           </div></p>
       
        <div> 

@@ -11,7 +11,6 @@ This html page calls another php page(condition.php)
     <meta charset="UTF-8". />
     <meta name=" login page" content="This is the login page for the expense tracking website" / >
     <title>Expense tracke </title>
-    <a href= "../ExpenseTracker/Home page.php"><strong>Return</strong></a>
     <center align="left"> <img alt="user "src="../ExpenseTracker\icon\profile.png" style="width: 2%;" / >
     <link rel="stylesheet"href="css\forall.css">
     <?php
@@ -41,6 +40,9 @@ This html page calls another php page(condition.php)
 
 </head>
 <body    style="background-color:  rgba(250, 31, 31, 0.080)" >
+ <header>
+  <p><a href= "../ExpenseTracker/Home page.php"><strong>Return</strong></a></p>
+ </header>
    
 
     <form action="condition.php"    style="background-color:  rgba(250, 31, 31, 0.075); width: 100%; height: 10%;"  method="post" > 

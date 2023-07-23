@@ -8,10 +8,14 @@
 
 <html>
     <head>
-    <a href= "../ExpenseTracker/Home page.php"><strong>Return</strong></a>
+   
     <link rel="stylesheet"href="css\forall.css">
     </head>
-    <body style="background-color:lavenderblush"></body>
+    <body style="background-color:  rgba(250, 31, 31, 0.080)">
+    <header>
+     <p><a href= "../ExpenseTracker/Home page.php"><strong>Return</strong></a> </p>
+     </header>
+   </body>
     <center align="left"> <img alt="user "src="../ExpenseTracker\icon\profile.png" style="width: 2%;" / >
     <?php
    session_start();
@@ -78,9 +82,9 @@ if (isset($_POST['update'])) // when click on Update button
 
 <form method="POST"   style="background-color:  rgba(250, 31, 31, 0.080)">
 
-    <input type="text" id='no' name="UsernName" value="<?php echo $data['UsernName'] ?>" placeholder="Enter Author Name" Required>
-    <input type="text" id='no' name="Email" value="<?php echo $data['Email'] ?>" placeholder="Enter Title" Required>
-    <input type="text" id='no' name="password" value="<?php echo $data['password'] ?>" placeholder="Enter Price" Required>
+    <input type="text" id='no' name="UsernName" value="<?php echo $data['UsernName'] ?>" placeholder="Enter Author Name">
+    <input type="text" id='no' name="Email" value="<?php echo $data['Email'] ?>" placeholder="Enter Title" >
+    <input type="text" id='no' name="password" value="<?php echo $data['password'] ?>" placeholder="Enter Price" >
 
     <input type="submit" id='no' name="update" value="Update">
 </center>

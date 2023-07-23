@@ -6,9 +6,15 @@
 -->
 <!DOCTYPE html>
 <html>
-    <head>   <a href= "../ExpenseTracker/serch_Expense.php"><strong>Return</strong></a></head>
+    <head>   </head>
     <link rel="stylesheet"href="css\forall.css">
-    <body style="background-color:lavenderblush"></body>
+    <body style="background-color:  rgba(250, 31, 31, 0.080)">
+    <header>
+     <p>
+     <a href= "../ExpenseTracker/serch_Expense.php"><strong>Return</strong></a>
+     </p>
+    </header>
+  </body>
     <center align="left"> <img alt="user "src="../ExpenseTracker\icon\profile.png" style="width: 2%;" / >
     <?php
    session_start();
@@ -66,8 +72,8 @@ if (isset($_POST['update'])) // when click on Update button
    $Note=$_POST['Note'];
     $Data=$_POST['DATA'];
 
-     echo"$query";
-     echo"<br>";
+    
+     
     $query = "update financial_amount set expenses='$mony',Write_anote='$Note',data='$Data' where number='$number'";
      $edit = $conn->query($query);
      $value2=$data1['mony'];
@@ -77,7 +83,7 @@ if (isset($_POST['update'])) // when click on Update button
      $edit3 = $conn->query($updata);
      if ($edit3) {
       $conn->close(); // Close connection
-      //header("location:Home page.php"); // redirects to all records page
+      header("location:Home page.php"); // redirects to all records page
       exit;}
    else {
       echo "<p>Unable to execute the query.</p> ";
@@ -98,10 +104,12 @@ if (isset($_POST['update'])) // when click on Update button
 <h3>Update Data</h3>
 <!-- style="background-color:  rgba(250, 31, 31, 0.080)-->
 <form method="POST">
-
-    <input type="text" id='no' name="Mony" value="<?php echo $data['expenses'] ?>" placeholder="Enter the mony" Required>
-    <input type="text" id='no' name="Note" value="<?php echo $data['Write_anote'] ?>" placeholder="Enter data" Required>
-    <input type="text"  id='no'name="DATA" value="<?php echo $data['data'] ?>" placeholder="Enter Time" Required>
+       <label>mony</label> 
+    <input type="text" id='no' name="Mony" value="<?php echo $data['expenses'] ?>" placeholder="Enter the mony" >
+    <label>Note</label> 
+    <input type="text" id='no' name="Note" value="<?php echo $data['Write_anote'] ?>" placeholder="Enter data" >
+    <label>Data</label> 
+    <input type="text"  id='no'name="DATA" value="<?php echo $data['data'] ?>" placeholder="Enter Time" >
    
     <input type="submit"  id='no'name="update" value="Update">
   </center>
