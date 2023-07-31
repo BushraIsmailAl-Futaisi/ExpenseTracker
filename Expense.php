@@ -76,7 +76,7 @@ if (isset($_POST['submit'])) // when click on Update button
     // echo"<br>";
       try{
         if($mony2 >  $Mony1){ 
-          throw new Exception("erorr the money more than in the mone in category or mony is -");
+          throw new Exception("erorr the money more than in the mone in category ");
         } 
 
     else{
@@ -167,7 +167,7 @@ if (isset($_POST['submit'])) // when click on Update button
        <br>
        <div> 
           <label>The mony </label>
-          <p><input type="text"   name="Mony"  id='no' minlength="1"  placeholder="Enter the mony" required ></p> 
+          <p><input type="text"   name="Mony"  id='no' min="1"  placeholder="Enter the mony" required ></p> 
        </div>
       
            <label> note </label>

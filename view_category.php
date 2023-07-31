@@ -55,12 +55,14 @@ to delete the category(delete_category.php) ,to  add expense to the category(Exp
         <td>Edit</td>
         <td>Delete</td>
         <td>Expense</td>
+        <td>transformation</td>
       </tr>
     </center>
       <?php
        if(isset($_POST['serch'])){
         $cate=$_POST['Addcategory'];
-    
+             
+        
  
      if (!$cate) {
         echo '<p>You have not entered search details.<br/>
@@ -121,6 +123,7 @@ to delete the category(delete_category.php) ,to  add expense to the category(Exp
           <td><a href="edit_category.php?number_category=<?php echo $data['number_category'];?>">Edit</a></td>
           <td><a href="delete_category.php?number_category=<?php echo $data['number_category'];?>">Delete</a></td>
           <td><a href="Expense.php?number_category=<?php echo $data['number_category'];?>">Add Expense</a></td>
+          <td><a href="transformation.php?number_category=<?php echo $data['number_category'];?>&category=<?php echo $data['category'];?>">transformation</a></td>
           </td>
 
         </tr>

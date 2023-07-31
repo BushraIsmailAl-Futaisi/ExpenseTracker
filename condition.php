@@ -15,6 +15,7 @@
    if(empty( $_SESSION['user']) && (empty( $_SESSION['Email']))){
     
     echo' no_Username';
+    
    }
     
     else
@@ -40,11 +41,11 @@
 </body>
   <?php
    
-$email=$_POST['Email'];
-$password=$_POST['password'];
+ $email=$_POST['Email'];
+ $password=$_POST['password'];
 
 
-if (!$email || !$password) {
+ if (!$email || !$password) {
    echo '<p>You have not entered search details.<br/>
    Please go back and try again.</p>';
    exit;
@@ -61,7 +62,9 @@ if ($connection->connect_error) {
    echo $connection -> error;
    exit;
 }
-
+else{
+  echo 'its connection';
+}
 $query = "SELECT Id_number,Email,password	 FROM username WHERE Email='$email' and password= '$password'";
 
 $result=$connection->query($query);
