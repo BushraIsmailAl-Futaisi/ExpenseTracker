@@ -70,7 +70,16 @@ if ($conn->connect_error) {
        echo' its connected';
     }
       
+   if($value<0){
+    ?>
+    <script>
+    alert ("the mony cant be negtive-");
+    </script>
+    <?php
+    header("REFRESH:3;Add category.php");
+   }
    
+   else{
     $id=$_SESSION['Id_number'];
     $query = "INSERT INTO addcategory (user_id,category,mony,soucer_mony,Data,Time ,Write_a_note ) 
      VALUES ('$id','$gory','$value','$Soucer','$DATA','$TIME','$Note')";
@@ -91,7 +100,7 @@ if ($conn->connect_error) {
        $conn -> close();
        
 
-       
+  }  
 
   ?>
 

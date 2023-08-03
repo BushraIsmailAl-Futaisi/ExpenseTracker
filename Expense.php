@@ -67,7 +67,7 @@ if (isset($_POST['submit'])) // when click on Update button
     $DATA = $_POST['Data'];
     $TIME = $_POST['Time'];
     $note = $_POST['Write_a_note'];
-    $TIME = $_POST['Time'];
+   // $TIME = $_POST['Time'];
     /////////////////////////////////
     $mony2=$_POST['Mony'];
    $Note=$_POST['Note'];
@@ -80,7 +80,10 @@ if (isset($_POST['submit'])) // when click on Update button
         } 
 
     else{
-      
+      if( $mony2 < 0 ){ 
+        echo "the mony cant be negtive-";
+       } 
+      else{
     $id=$_SESSION['Id_number'];
      $query = "INSERT INTO financial_amount(username_id,number_addcategory,expenses,Write_anote,data)  VALUES 
      ('$id','$num','$mony2','$Note','$Data')" ;
@@ -117,7 +120,7 @@ if (isset($_POST['submit'])) // when click on Update button
         //close connection
         $conn -> close();
   
-    
+      }
     }     
   }
   catch (Exception $e) {

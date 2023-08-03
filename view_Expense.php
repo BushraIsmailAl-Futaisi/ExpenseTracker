@@ -44,8 +44,7 @@ to delete the category(delete Expense.php) -->
 
     <table border="2"  style="background-color:  rgba(250, 31, 31, 0.080)">
       <tr style="background-color:ivory">
-        <td>user_id</td>
-        <td>number_category</td>
+       
         <td>number</td>
         <td>category</td>
         <td>expenses</td>
@@ -93,12 +92,7 @@ to delete the category(delete Expense.php) -->
       while ($data = $result->fetch_array(MYSQLI_ASSOC)) {
         ?>
         <tr>
-          <td>
-            <?php echo $data['username_id']; ?>
-          </td>
-          <td>
-            <?php echo $data['number_addcategory']; ?>
-          </td>
+          
           <td>
             <?php echo $data['number']; ?>
           </td>

@@ -48,6 +48,7 @@
          <button> <a href= "../ExpenseTracker/Serch_category.php"><strong> All_category</strong></a></button>
          <button> <a href= "../ExpenseTracker/serch_Expense.php"><strong> ALL_Expense</strong></a></button>
          <button> <a href= "../ExpenseTracker/evaluation.php"><strong> evaluation</strong></a></button>
+         <button> <a href= "../ExpenseTracker/view_transformation.php"><strong>transformation category </strong></a></button>
          <center><label>Search</label>
         <input type="search"  placeholder="write the search"></center>
         <h2>Expense tracker</h2>

@@ -44,7 +44,6 @@ to delete the category(delete_category.php) ,to  add expense to the category(Exp
   
     <table border="2"  style="background-color:  rgba(250, 31, 31, 0.080)">
       <tr style="background-color:ivory">
-        <td>user_id</td>
         <td>number_category</td>
         <td>category</td>
         <td>mony</td>
@@ -96,9 +95,7 @@ to delete the category(delete_category.php) ,to  add expense to the category(Exp
       while ($data = $result->fetch_array(MYSQLI_ASSOC)) {
         ?>
         <tr>
-          <td>
-            <?php echo $data['user_id']; ?>
-          </td>
+          
           <td>
             <?php echo $data['number_category']; ?>
           </td>

@@ -43,7 +43,7 @@
        <center>
        <div> 
           <label>number_evaluation</label>
-         <p><input type="number"  id='no'  name="num"   min='1'  max='100'  required ></p> 
+         <p><input type="number"  id='no'  name="num"   min='1'  max='5'  required ></p> 
        </div>
        <div>
               <label >Write a note</label>
@@ -72,11 +72,24 @@ if ($conn->connect_error) {
      die($conn -> error);
  }
  else{
-    echo' it`s connected';
+  echo'<br>';
+   // echo' it`s connected';
  }
- 
-    
  $id=$_SESSION['Id_number'];
+ $qurey2= "SELECT count_E,id_E,number,note FROM evaluation WHERE id_E='$id' ";
+     $result3 = $conn->query($qurey2); // fetch data
+      try{
+     $data2 = $result3->fetch_array(MYSQLI_ASSOC);
+    
+   if(!empty($data2['id_E']))
+     {
+      echo'<br>';
+      throw new Exception("I've done an appraisal before you only have once");
+      
+     
+     }
+     else{
+ 
  $query="INSERT INTO evaluation (id_E,number,note)  VALUES 
  ('$id','$number','$note')" ;
      $result = $conn->query($query);
@@ -88,13 +101,20 @@ if ($conn->connect_error) {
      echo   $conn -> error ;
      echo   "<br/>.The item was not added.";
      echo    "<br/>$query ";
+     header("REFRESH:3;Home page.php");
  }
 
 
     //close connection
     $conn -> close();
     header("REFRESH:3;Home page.php");
+  }
+}
+catch (Exception $e) {
+  echo 'Message: ' . $e->getMessage();
+  header("REFRESH:3;Home page.php");
 
+}
 }
 ?>
 

@@ -59,19 +59,20 @@ $qu= "SELECT user_id,number_category,category,mony,soucer_mony,Data,Time,Write_a
      }
     
     $data1 = $result2->fetch_array(MYSQLI_ASSOC);
+    
     $frist=$data1['mony'];
-    echo"<br>";
-     echo$frist;
+   // echo"<br>";
+     //echo$frist;
    //////////////
     if (isset($_POST['transformation'])){
       $data=$_POST['date'];
       $note=$_POST['Write'];
      $transcate=$_POST['tocategory'];
       $Mony5=$_POST['Mony2'];
-      echo"<br>";
-      echo$Mony5;
+      //echo"<br>";
+      //echo$Mony5;
       
-     $qurey= "SELECT user_id,number_category,category,mony,soucer_mony,Data,Time,Write_a_note FROM addcategory WHERE category='$transcate'";
+     $qurey= "SELECT user_id,number_category,category,mony,soucer_mony,Data,Time,Write_a_note FROM addcategory WHERE category='$transcate' AND user_id='$id' ";
      $result3 = $conn->query($qurey); // fetch data
      if (!$result3) {
      // echo "<p>Unable to execute the query.</p> ";
@@ -80,40 +81,59 @@ $qu= "SELECT user_id,number_category,category,mony,soucer_mony,Data,Time,Write_a
      }
      //////////////
               
-
+      
     $data2 = $result3->fetch_array(MYSQLI_ASSOC);
-    $new=$data2['mony'];
-    echo"<br>";
-    echo$new;
+    
+   
+    try{
+      if($Mony5 >  $frist ){ 
+        throw new Exception("erorr the money more than in the mone in category ");
+      } 
+
+  else{
+   // echo"<br>";
+    //echo$new;
+    if( $Mony5 < 0 ){ 
+        echo "the mony cant be negtive-";
+       } 
+       else{
+         $new=$data2['mony'];
     $frist1=$frist-$Mony5;
-    echo"<br>";
-    echo $frist1;
+    //echo"<br>";
+   // echo $frist1;
     $new_one=$new+$Mony5;
-    echo"<br>";
-    echo$new_one;
+    //echo"<br>";
+    //echo$new_one;
     $query6 = "INSERT INTO transformation (id_trans,from_category,mony1,to_category,mony2,Write_a_note,data)  VALUES 
     ('$id','$cate','$frist','$transcate','$Mony5','$note','$data')";
         $result6 = $conn->query($query6);
   
     
-    $query = "update addcategory set mony='$new_one' where  category='$transcate'";
+    $query = "update addcategory set mony='$new_one' where  category='$transcate' AND user_id='$id'";
     $edit1 = $conn->query($query);
        
     
-    $query4 = "update addcategory set mony='$frist1' where category='$cate'";
+    $query4 = "update addcategory set mony='$frist1' where category='$cate' AND user_id='$id'";
     $edit2 = $conn->query($query4);
-
-
-    
-    }
-  
+     if($edit2)
+     {
+       header("REFRESH:3;Home page.php");
    
+     }
+       }
+  }
+  }
+    catch (Exception $e) {
+    echo 'Message: ' . $e->getMessage();}
+
+  
+    }
+ 
 ?>
 <form method="POST" >
 <center>
        
        </div>
-        <br>
         <h3>transformation</h3>
        <div> 
           <label>from category </label>
@@ -130,7 +150,7 @@ $qu= "SELECT user_id,number_category,category,mony,soucer_mony,Data,Time,Write_a
        </div>
         <div> 
              <label> mony </label>
-            <p><input type="text" id='no'    name="Mony"  value="<?php echo   $data1['mony'] ?>" required></p>
+            <p><input type="text" id='no'  min='1'  name="Mony"  value="<?php echo   $data1['mony'] ?>" required></p>
 
         </div> 
        
@@ -150,7 +170,7 @@ $qu= "SELECT user_id,number_category,category,mony,soucer_mony,Data,Time,Write_a
       
         <div> 
              <label> transformation mony </label>
-            <p><input type="text" id='no'    name="Mony2"  placeholder="Enter the mony" required></p>
+            <p><input type="text" id='no'   min='1'  name="Mony2"  placeholder="Enter the mony" required></p>
             
         </div>
         <div> 
